@@ -56,15 +56,51 @@
 .wrapper .classify{
     width: auto;
     height: auto;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
+/* 轮播图 */
 .wrapper .classify .plant{
     width: 100%;
     height: 200px;
-    border: 1px solid red;
+    position: relative;
+}
+.wrapper .classify .plant ul{
+    height: 100%;
+    width: 500%;
+    /* overflow: hidden; */
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: inherit;
 }
 
+.wrapper .classify .plant ul li{
+    width: 20%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    float: left;
+    display: block;
+    /* background-image: url(../images/book3.jpg); */
+    position: relative;
+    background-size: 100% 100%;
+}
+
+.wrapper .classify .plant ul li .detail{
+    width: 100%;
+    height: 40px;
+    background-color: #47474777;
+    border: 1px solid white;
+    position: absolute;
+    bottom: 0;
+}
+.wrapper .classify .plant ul li .detail p{
+    width: 100%;
+    height: 100%;
+    color: white;
+}
+/* 图书分类 */
 .wrapper .classify .type{
     width: 100%;
     height: 40px;
