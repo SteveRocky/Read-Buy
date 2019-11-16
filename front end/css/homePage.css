@@ -1,0 +1,157 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+.wrapper .navigate{
+    width: 100%;
+    height: 50px;
+    box-shadow: 0px 2px 5px rgb(114, 114, 114);
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;   
+}
+
+.wrapper .navigate .logo{
+    width:100px;
+    height: 50px;
+    float: left;
+}
+
+.wrapper .navigate input{
+    width: 40%;
+    height: 30px;
+    border: 1px solid rgba(134, 134, 134, 0.376);
+    display: block;
+    float: left;
+    margin-left: 5%;
+    margin-top: 10px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    box-sizing: border-box;  
+}
+
+.wrapper .navigate .search{
+    width: 30px;
+    height: 30px;
+    float: left;
+    margin-top: 10px;
+    border-left: none;
+    /* box-sizing: border-box; */
+    background-color: rgba(255, 71, 71, 0.938);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-sizing: border-box;
+}
+
+.wrapper .navigate .personal{
+    width: 36px;
+    height: 36px;
+    float: right;
+    margin-right: 5%;
+    margin-top: 7px;
+}
+
+.wrapper .classify{
+    width: auto;
+    height: auto;
+    border: 1px solid black;
+}
+
+.wrapper .classify .plant{
+    width: 100%;
+    height: 200px;
+    border: 1px solid red;
+}
+
+.wrapper .classify .type{
+    width: 100%;
+    height: 40px;
+    overflow: hidden;   
+}
+
+.wrapper .classify .type ul{
+    width: 420px;
+    height: 40px;   
+}
+.wrapper .classify .type li{
+    line-height: 40px;
+    float: left;
+    height: 40px;
+    width: 70px;
+    box-sizing: border-box;
+    display: block;
+    border: 1px solid rgba(80, 80, 80, 0.562);
+    text-align: center;
+}
+
+.wrapper .classify .show{
+    width: 100%;
+    height: auto;
+    border: 1x solid black;
+    margin-top: 10px;
+}
+
+.wrapper .classify .show li{
+    width: 90%;
+    height: auto;
+    border-bottom: 1px dotted rgba(80, 80, 80, 0.562);
+    margin: 0 auto;
+}
+
+.wrapper .classify .show li:first-child{
+    border-top: 1px dotted rgba(80, 80, 80, 0.562);
+}
+
+.wrapper .classify .show li a{
+    height: 40px;
+    width: 100%;
+    display: inline-block;
+    position: relative;
+    
+}
+
+.wrapper .classify .show li a .heat{
+    width: 80px;
+    height: 20px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -10px;
+    color: darkgray;
+}
+
+.wrapper .classify .show li a .heat h5{
+    width: 60px;
+    height: 20px;
+    text-align: center;
+    font-weight: 400;
+}
+.wrapper .classify .show li a h4{
+    font-weight: 400;
+}
+/* 排行榜第一个 */
+.wrapper .classify .show .first_child .fire{
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    fill: #ff1e00;
+}
+/* 排行榜第二个 */
+.wrapper .classify .show .second_child .fire{
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    fill: #fc7361;
+}
+/* 排行榜第三个 */
+.wrapper .classify .show .third_child .fire{
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    fill: #ffbdb4;
+}
