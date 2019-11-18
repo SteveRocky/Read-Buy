@@ -63,16 +63,16 @@
 .wrapper .classify .plant{
     width: 100%;
     height: 200px;
-    position: relative;
+    /* position: relative; */
+    overflow: hidden;
 }
 .wrapper .classify .plant ul{
     height: 100%;
     width: 500%;
     /* overflow: hidden; */
-    position: absolute;
+    position: relative;
     left: 0;
     top: 0;
-    transform: inherit;
 }
 
 .wrapper .classify .plant ul li{
@@ -83,8 +83,9 @@
     float: left;
     display: block;
     /* background-image: url(../images/book3.jpg); */
-    position: relative;
+    position: absolute;
     background-size: 100% 100%;
+    z-index: -1;
 }
 
 .wrapper .classify .plant ul li .detail{
@@ -104,7 +105,8 @@
 .wrapper .classify .type{
     width: 100%;
     height: 40px;
-    overflow: hidden;   
+    overflow: hidden; 
+    cursor: pointer;  
 }
 
 .wrapper .classify .type ul{
@@ -120,6 +122,9 @@
     display: block;
     border: 1px solid rgba(80, 80, 80, 0.562);
     text-align: center;
+    background-color: rgb(71, 166, 197);
+    color: white;
+    box-sizing: border-box;
 }
 
 .wrapper .classify .show{
