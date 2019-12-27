@@ -10,7 +10,7 @@ secret_key = 'UfpLl_dN6OWuATgVjrDyxT4kwlanKq_iuCnRCFw4'
 q = Auth(access_key, secret_key)
 
 # 要上传的空间
-bucket_name = 'read-buy'
+bucket_name = 'read-buy1'
 
 
 def image_store(file_data):

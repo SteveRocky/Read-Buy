@@ -1,52 +1,31 @@
-$(function(){
-    // 轮播图自动播放
-    plant_play();
-    move();
-})
-
-
-function plant_play(){
-    for(let i = 0; i<$(".plant li").length; i++){
-        //获取父元素的宽度，即屏幕宽度，实现不同平台都能自适应屏幕大小小
-        let width = $(".plant").innerWidth();
-        let str = "url(D:/Read&Listen/front-end/images/book" + i + ".jpg)"
-        $(".plant li").eq(i).css("background-image", str);
-        $(".plant li").eq(i).css("left", String(i*width)+"px")
+    var objdbConn = new ActiveXObject("ADODB.Connection");
+    // DSN字符串
+    var strdsn = "Driver={SQL Server};SERVER=127.0.0.1;UID=sa;PWD=sa;DATABASE=coa";
+    // 打开数据源
+    objdbConn.Open(strdsn);
+    // 执行SQL的数据库查询
+    var objrs = objdbConn.Execute("SELECT menu_name FROM basic_mainmenu");
+    // 获取字段数目
+    var fdCount = objrs.Fields.Count - 1;
+    // 检查是否有记录
+    if (!objrs.EOF){
+    document.write("<table border=1><tr>");
+    // 显示数据库的字段名称
+    for (var i=0; i <= fdCount; i++)
+    document.write("<td><b>" + objrs.Fields(i).Name + "</b></td>");
+    document.write("</tr>");
+    // 显示数据库内容
+    while (!objrs.EOF){
+    document.write("<tr>");
+    // 显示每笔记录的字段
+    for (i=0; i <= fdCount; i++)
+    document.write("<td valign='top'>" + objrs.Fields(i).Value + "</td>");
+    document.write("</tr>");
+    objrs.moveNext(); // 移到下一笔记录
     }
-    var playTime = setInterval("showAuto()", 5000);
-}
-
-
-function showAuto(){
-    let width = $(".plant").innerWidth();
-    for(let i=0; i<3; i++){
-        let left = $('.plant li').eq(i).offset().left;
-        if((left-width)<-width){
-            $('.plant li').eq(i).css({
-                'left': String(width*1)+'px',
-                "zIndex" : "-2",
-                'transition': 'left 0s',
-        }); 
-        }else{
-            $('.plant li').eq(i).css('left', );
-            $('.plant li').eq(i).css({
-                'left': String(Math.round(left-width))+'px',
-                'transition': 'left 1s',
-            })
-        }
+    document.write("</table>");
     }
-}
-
-function move(){
-    $(".type").mousedown(function(e){
-        console.log('down');
-        $(this).mousemove(function(e){
-            let pageX = e.pageX;
-            let pageY = e.pageY;
-            console.log(pageX, pageY);
-            $(this).mouseup(function(e){
-                
-            })
-        })
-    })
-}
+    else
+    document.write("数据库内没有记录!<br>");
+    objrs.Close(); // 关闭记录集合
+    objdbConn.Close(); // 关闭数据库链接

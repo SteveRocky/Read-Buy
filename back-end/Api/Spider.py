@@ -1,7 +1,7 @@
 import requests
 import re
 from Image_store import image_store
-
+from models import *
 headers = {
     'User-Agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Mobile Safari/537.36'
 }
@@ -35,19 +35,22 @@ def judge(result):
         detail = re.findall(r'<p.*?>\n\s(.*?)\n', result)[2]
         photo_data = get_data(photo_url[0]).content
         cloud_name = image_store(photo_data)
-        date = {
+        data = {
             "photo_url": photo_url[0],
             "book_url": book_url,
             "name": name,
-            "cloud_url": "http://q17qc0xmu.bkt.clouddn.com/"+cloud_name,
+            "cloud_url": "http://q36bycaq9.bkt.clouddn.com/"+cloud_name,
             "author": author[0].replace(" ", ""),
             "detail": detail.replace(" ", "")
 
         }
-        print(date['cloud_url'])
+        print(data['cloud_url'])
+        book = Book(book_name = data['name'], book_url = data['book_url'], book_describe = data['detail'], book_author = data['author'], book_image_url = data['cloud_url'])
+        session.add(book)
+        session.commit()
         # 相当于把数据存入数据库,之后需要把这些数据存储到mysql、redis中
-        with open("../Resourse/Images/content.txt", 'a', encoding='utf-8') as cont:
-            cont.write(str(date))
+        # with open("../Resourse/Images/content.txt", 'a', encoding='utf-8') as cont:
+        #     cont.write(str(date))
 
 
 for result in results:
